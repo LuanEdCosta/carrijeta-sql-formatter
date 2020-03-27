@@ -1,7 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
+import AutoHeightInput from '../../components/AutoHeightInput'
+import { Container } from './styles'
+import Header from '../../components/Header'
 
 const Home = () => {
-  return <div className="home">asdasdasdasd</div>
+  const [unformattedSql, setUnformattedSql] = useState('')
+
+  return (
+    <Container>
+      <Header />
+      <AutoHeightInput text={unformattedSql} setText={setUnformattedSql} />
+    </Container>
+  )
 }
 
 export default Home

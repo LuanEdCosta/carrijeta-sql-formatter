@@ -19,5 +19,9 @@ export const GlobalStyle = createGlobalStyle`
     color: ${({ theme }) => theme.primaryText};
     background: ${({ theme }) => theme.background};
     font-size: 1.6rem;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    height: 100%;
   }
 `

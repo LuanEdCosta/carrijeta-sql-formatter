@@ -15,10 +15,12 @@ when i need to code in Delphi.
 - [x] Config eslint, prettier
 - [x] Create folder structure
 - [x] Create global styles and theme provider
+- [x] Install font awesome and create icon library
+- [x] Install redux and react-redux
+- [x] Switch between Dark and light themes
 - [ ] Create layout
 - [ ] Copy formatted SQL to clipboard
 - [ ] Put *#13* at the end of each SQL line
 - [ ] Code highlighting
 - [ ] Config SQL format
 - [ ] Downlaod formatted SQL file
-- [ ] Switch between Dark and light themes
