@@ -17,6 +17,7 @@ when i need to code in Delphi.
 - [x] Create global styles and theme provider
 - [x] Install font awesome and create icon library
 - [x] Install redux and react-redux
+- [x] Install i18next and react-i18next
 - [x] Switch between Dark and light themes
 - [ ] Create layout
 - [ ] Copy formatted SQL to clipboard
@@ -24,3 +25,12 @@ when i need to code in Delphi.
 - [ ] Code highlighting
 - [ ] Config SQL format
 - [ ] Downlaod formatted SQL file
+
+## :zap: Used Technologies
+
+- ReactJs
+- Redux
+- i18next
+- Eslint
+- Prettier
+- styled-components

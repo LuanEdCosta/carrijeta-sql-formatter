@@ -4,7 +4,7 @@ import { HEADER_HEIGHT } from '../../styles/Metrics'
 export const Container = styled.div`
   display: flex;
   align-items: center;
-  padding: 0 4.8rem 0 1.6rem;
+  padding: 0 5%;
   position: fixed;
   top: 0;
   width: 100%;

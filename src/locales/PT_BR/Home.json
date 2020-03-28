@@ -1,0 +1,9 @@
+{
+  "charCount": "{{count}}/10000",
+  "sqlPlaceholder": "Escreva seu SQL aqui",
+  "formatting": "Formatando SQL...",
+  "sqlTypes": {
+    "normal": "SQL Normal",
+    "delphi": "Delphi SQL"
+  }
+}

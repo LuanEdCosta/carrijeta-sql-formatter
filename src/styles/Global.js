@@ -24,4 +24,13 @@ export const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     height: 100%;
   }
+
+  textarea, input, button {
+    font-family: 'Montserrat', sans-serif;
+    color: ${({ theme }) => theme.primaryText};
+    line-height: 1.5;
+    font-size: 1.6rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 `

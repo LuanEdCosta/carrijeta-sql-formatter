@@ -1,23 +1,23 @@
-import React, { useContext, useCallback } from 'react'
-import PropTypes from 'prop-types'
+import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useTheme } from 'styled-components'
+import { useTranslation } from 'react-i18next'
 import { Container, AppName, HeaderActions, Action } from './styles'
 import { useThemeSwitcher } from '../../hooks'
 
+const repoUrl = 'https://github.com/LuanEdCosta/carrijeta-sql-formatter'
+
 const Header = () => {
+  const { t } = useTranslation()
   const onSwitchTheme = useThemeSwitcher()
   const theme = useTheme()
 
   return (
     <Container>
-      <AppName href="/">Carrijeta SQL Formatter</AppName>
+      <AppName href="/">{t('appName')}</AppName>
 
       <HeaderActions>
-        <Action
-          href="https://luanedcosta.github.io/carrijeta-sql-formatter/"
-          target="_blank"
-        >
+        <Action href={repoUrl} target="_blank">
           <FontAwesomeIcon icon={['fab', 'github']} color={theme.primaryText} />
         </Action>
 
@@ -28,9 +28,5 @@ const Header = () => {
     </Container>
   )
 }
-
-Header.defaultProps = {}
-
-Header.propTypes = {}
 
 export default Header
