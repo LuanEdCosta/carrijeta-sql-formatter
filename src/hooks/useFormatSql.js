@@ -1,58 +1,30 @@
 import { useCallback } from 'react'
+import SQL_TYPES from '../config/SqlTypes'
+import { onFormatDefaultToDelphi, onFormatDelphiToDefault } from '../core'
 
-const END_OF_SQL = `';`
-const END_OF_LINE = `'#13+`
-
-export default (setFormattedSql) => {
+export default (setFormattedSql, inputType, outputType, options) => {
   const onFormatSql = useCallback(
-    (sqlText) => {
-      if (!sqlText || !sqlText.trim()) {
-        setFormattedSql('')
-        return
+    (inputText) => {
+      let outputText = ''
+
+      switch (true) {
+        case inputType === SQL_TYPES.DEFAULT &&
+          outputType === SQL_TYPES.DELPHI: {
+          outputText = onFormatDefaultToDelphi(inputText, options)
+          break
+        }
+        case inputType === SQL_TYPES.DELPHI &&
+          outputType === SQL_TYPES.DEFAULT: {
+          outputText = onFormatDelphiToDefault(inputText, options)
+          break
+        }
+        default:
+          outputText = ''
       }
 
-      let formattedSql = ''
-      const linesArray = sqlText.split('\n')
-
-      if (linesArray.length > 1) {
-        let biggestLine = ''
-        const whiteSpacesForEachLine = Array(linesArray.length)
-          .join('.')
-          .split('.')
-
-        linesArray.forEach((line) => {
-          if (line.length > biggestLine.length) {
-            biggestLine = line
-          }
-        })
-
-        linesArray.forEach((line, index) => {
-          const lineLengthDifference = biggestLine.length - line.length
-          const numberOfWhiteSpaces = lineLengthDifference + 4
-          whiteSpacesForEachLine[index] = Array(numberOfWhiteSpaces).join(' ')
-        })
-
-        linesArray.forEach((line, index) => {
-          const lineWhiteSpaces = whiteSpacesForEachLine[index]
-          const newLine = `'${line}${lineWhiteSpaces}${END_OF_LINE}\n`
-
-          if (index !== linesArray.length - 1) {
-            if (!line || !line.trim()) {
-              formattedSql += `'${lineWhiteSpaces}${END_OF_LINE}\n`
-            } else {
-              formattedSql += newLine
-            }
-          } else {
-            formattedSql += `'${line}${lineWhiteSpaces}${END_OF_SQL}`
-          }
-        })
-      } else {
-        formattedSql = `'${sqlText}${END_OF_SQL}`
-      }
-
-      setFormattedSql(formattedSql)
+      setFormattedSql(outputText)
     },
-    [setFormattedSql],
+    [inputType, options, outputType, setFormattedSql],
   )
 
   return onFormatSql

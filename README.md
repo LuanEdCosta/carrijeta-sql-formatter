@@ -22,9 +22,13 @@ when i need to code in Delphi.
 - [x] Create layout
 - [x] Copy formatted SQL to clipboard
 - [x] Put *#13* at the end of each SQL line
-- [ ] Code highlighting
+- [x] Feature: switch between normal SQL and DELPHI SQL
+- [ ] Show the project version in header
+- [ ] Style all the scrollbars
 - [ ] Config SQL format
-- [ ] Downlaod formatted SQL file
+- [ ] Code highlighting
+- [ ] Downlaod the formatted SQL file
+- [ ] Downlaod the unformatted SQL file
 
 ## :zap: Used Technologies
 

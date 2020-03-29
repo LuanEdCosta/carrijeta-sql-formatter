@@ -21,8 +21,8 @@ export const ImportActions = styled.div`
 
 export const FormatContainer = styled.div`
   border: 1px solid ${({ theme }) => theme.border};
-  border-radius: 8px;
   background: ${({ theme }) => theme.background2};
+  border-radius: 8px;
   min-height: 400px;
   overflow: hidden;
   display: flex;

@@ -1,7 +1,14 @@
-import React, { useState, useCallback, useRef } from 'react'
+import React, { useState, useCallback, useRef, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useTranslation } from 'react-i18next'
+import SQL_TYPES from '../../config/SqlTypes'
 import Header from '../../components/Header'
+import {
+  useStopTyping,
+  useFormatSql,
+  useCopyToClipboard,
+  useReadFileContent,
+} from '../../hooks'
 import {
   Container,
   Content,
@@ -23,17 +30,20 @@ import {
   ImportAction,
   CopyAction,
 } from './styles'
-import { useStopTyping, useFormatSql, useCopyToClipboard } from '../../hooks'
 
 const Home = () => {
-  const { t } = useTranslation('Home')
+  const { t } = useTranslation(['Home', 'SqlTypes'])
 
   const inputRef = useRef(null)
+  const hadInvertedTypes = useRef(false)
   const [inputText, setInputText] = useState('')
   const [outputText, setOutputText] = useState('')
-  const [isTyping, setIsTyping] = useState('')
+  const [isTyping, setIsTyping] = useState(false)
+  const [inputType, setInputType] = useState(SQL_TYPES.DEFAULT)
+  const [outputType, setOutputType] = useState(SQL_TYPES.DELPHI)
 
-  const onFormatSql = useFormatSql(setOutputText)
+  const onCopyOutputText = useCopyToClipboard('outputText')
+  const onFormatSql = useFormatSql(setOutputText, inputType, outputType)
 
   const onChangeInputText = useStopTyping(
     setInputText,
@@ -48,24 +58,26 @@ const Home = () => {
     inputRef.current.focus()
   }, [])
 
-  const onFileSelected = useCallback(
-    (e) => {
-      if (typeof window.FileReader === 'function') {
-        const [file] = e.target.files
-        const fileReader = new FileReader()
-        fileReader.onload = (readEvent) => {
-          onChangeInputText(readEvent.target.result)
-        }
-        fileReader.readAsText(file)
-      } else {
-        // eslint-disable-next-line no-alert
-        alert(t('Error:readFile'))
-      }
-    },
-    [onChangeInputText, t],
-  )
+  const onFileSelected = useReadFileContent((readEvent) => {
+    onChangeInputText(readEvent.target.result)
+  })
 
-  const onCopyOutputText = useCopyToClipboard('outputText')
+  const onInvertTypes = useCallback(() => {
+    setInputType(outputType)
+    setOutputType(inputType)
+    setInputText(outputText)
+    setOutputText(inputText)
+    hadInvertedTypes.current = true
+  }, [inputText, inputType, outputText, outputType])
+
+  const onFormatWhenInvertTypes = useCallback(() => {
+    if (hadInvertedTypes.current) {
+      onChangeInputText(inputText)
+      hadInvertedTypes.current = false
+    }
+  }, [inputText, onChangeInputText])
+
+  useEffect(onFormatWhenInvertTypes, [inputType, outputType])
 
   return (
     <Container>
@@ -89,17 +101,17 @@ const Home = () => {
         <FormatContainer>
           <FormatActions>
             <LeftAlignedActions>
-              <Action>{t('sqlTypes.normal')}</Action>
+              <Action>{t(`SqlTypes:${inputType}`)}</Action>
             </LeftAlignedActions>
 
             <CenterAlignedActions>
-              <Action round>
+              <Action onClick={onInvertTypes} round>
                 <FontAwesomeIcon icon="exchange-alt" />
               </Action>
             </CenterAlignedActions>
 
             <RightAlignedActions>
-              <Action>{t('sqlTypes.delphi')}</Action>
+              <Action>{t(`SqlTypes:${outputType}`)}</Action>
 
               <CopyAction onClick={onCopyOutputText}>
                 <FontAwesomeIcon icon="copy" />
@@ -137,7 +149,7 @@ const Home = () => {
 
             <OutputContainer>
               <OutputText usePlaceholderStyle={isTyping} id="outputText">
-                {isTyping && !!inputText ? t('formatting') : outputText}
+                {isTyping ? t('formatting') : outputText}
               </OutputText>
             </OutputContainer>
           </InputAndOutputContainer>
