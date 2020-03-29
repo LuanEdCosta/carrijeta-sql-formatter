@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/carrijeta-sql-formatter/static/js/main.757cb3e3.chunk.js",
-    "main.js.map": "/carrijeta-sql-formatter/static/js/main.757cb3e3.chunk.js.map",
+    "main.js": "/carrijeta-sql-formatter/static/js/main.b72849eb.chunk.js",
+    "main.js.map": "/carrijeta-sql-formatter/static/js/main.b72849eb.chunk.js.map",
     "runtime-main.js": "/carrijeta-sql-formatter/static/js/runtime-main.d21abbb7.js",
     "runtime-main.js.map": "/carrijeta-sql-formatter/static/js/runtime-main.d21abbb7.js.map",
-    "static/js/2.87d45a38.chunk.js": "/carrijeta-sql-formatter/static/js/2.87d45a38.chunk.js",
-    "static/js/2.87d45a38.chunk.js.map": "/carrijeta-sql-formatter/static/js/2.87d45a38.chunk.js.map",
+    "static/js/2.c5c45e14.chunk.js": "/carrijeta-sql-formatter/static/js/2.c5c45e14.chunk.js",
+    "static/js/2.c5c45e14.chunk.js.map": "/carrijeta-sql-formatter/static/js/2.c5c45e14.chunk.js.map",
     "index.html": "/carrijeta-sql-formatter/index.html",
-    "precache-manifest.369e0bf4c24562ac3189a4b01ba4f88e.js": "/carrijeta-sql-formatter/precache-manifest.369e0bf4c24562ac3189a4b01ba4f88e.js",
+    "precache-manifest.e7e8884d58a740e05d5737fcb1afb662.js": "/carrijeta-sql-formatter/precache-manifest.e7e8884d58a740e05d5737fcb1afb662.js",
     "service-worker.js": "/carrijeta-sql-formatter/service-worker.js",
-    "static/js/2.87d45a38.chunk.js.LICENSE.txt": "/carrijeta-sql-formatter/static/js/2.87d45a38.chunk.js.LICENSE.txt"
+    "static/js/2.c5c45e14.chunk.js.LICENSE.txt": "/carrijeta-sql-formatter/static/js/2.c5c45e14.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.d21abbb7.js",
-    "static/js/2.87d45a38.chunk.js",
-    "static/js/main.757cb3e3.chunk.js"
+    "static/js/2.c5c45e14.chunk.js",
+    "static/js/main.b72849eb.chunk.js"
   ]
 }
