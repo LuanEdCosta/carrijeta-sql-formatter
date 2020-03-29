@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { ContainerWithHeader } from '../../components/Containers'
+import { ScrollStyle01 } from '../../styles/Scrollbars'
 
 const BREAKPOINTS = {
   FIRST: '850px',
@@ -23,7 +24,8 @@ export const FormatContainer = styled.div`
   border: 1px solid ${({ theme }) => theme.border};
   background: ${({ theme }) => theme.background2};
   border-radius: 8px;
-  min-height: 400px;
+  min-height: 450px;
+  height: 70vh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -93,6 +95,8 @@ export const CopyAction = styled(Action)`
 export const InputAndOutputContainer = styled.div`
   display: flex;
   flex: 1;
+  max-height: 100%;
+  overflow: hidden;
   @media only screen and (max-width: ${BREAKPOINTS.FIRST}) {
     flex-direction: column;
   }
@@ -100,6 +104,7 @@ export const InputAndOutputContainer = styled.div`
 
 export const InputContainer = styled.div`
   border-right: 1px solid ${({ theme }) => theme.border};
+  background: ${({ theme }) => theme.background3};
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -110,20 +115,24 @@ export const ClearInputAction = styled(Action)`
   position: absolute;
   right: 0;
   top: 0;
-  margin-top: 0.8rem;
-  margin-right: 0.8rem;
+  margin-top: 0.4rem;
+  margin-right: 0.4rem;
 `
 
 export const InputComponent = styled.textarea`
   background: ${({ theme }) => theme.background3};
-  padding: 2.4rem 5.6rem 2.4rem 2.4rem;
+  padding: 2.4rem;
   font-size: 1.8rem;
   text-transform: uppercase;
-  overflow: hidden auto;
+  overflow: auto;
+  white-space: pre;
   resize: none;
   border: none;
   flex: 1;
   min-height: 160px;
+  max-height: 100%;
+  max-width: 100%;
+  ${ScrollStyle01}
 `
 
 export const InputFooter = styled.div`
@@ -132,9 +141,9 @@ export const InputFooter = styled.div`
 `
 
 export const CharactersCount = styled.div`
+  color: ${({ theme }) => theme.secondaryText};
   margin-left: auto;
   display: inline;
-  color: ${({ theme }) => theme.secondaryText};
   span {
     margin-left: 0.8rem;
   }
@@ -144,6 +153,8 @@ export const OutputContainer = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
+  max-height: 100%;
+  overflow: hidden;
 `
 export const OutputText = styled.code`
   background: ${({ theme }) => theme.background3};
@@ -152,9 +163,11 @@ export const OutputText = styled.code`
   text-transform: uppercase;
   font-size: 1.8rem;
   padding: 2.4rem;
-  overflow: hidden;
-  word-break: break-all;
-  white-space: pre-wrap;
+  overflow: auto;
+  white-space: pre;
   flex: 1;
   min-height: 160px;
+  max-height: 100%;
+  max-width: 100%;
+  ${ScrollStyle01}
 `

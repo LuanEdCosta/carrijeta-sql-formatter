@@ -1,9 +1,3 @@
-import {
-  END_OF_SQL,
-  END_OF_LINE,
-  SINGLE_QUOTE_CODE,
-} from './constants/DelphiConstants'
-
 export default (inputText) => {
   if (!inputText || !inputText.trim()) return ''
   const linesArray = inputText.split('\n')
@@ -15,14 +9,9 @@ export default (inputText) => {
 
     // Modify each line of the inputText
     const modifiedLinesArray = linesArray.map((line) => {
-      const singleQuoteCodeRegexp = new RegExp(`'`, 'gi')
-
       // Replace ' by '#39'
-      const modifiedLine = line.replace(
-        singleQuoteCodeRegexp,
-        `'${SINGLE_QUOTE_CODE}'`,
-      )
-
+      const singleQuoteCodeRegexp = new RegExp(`'`, 'gi')
+      const modifiedLine = line.replace(singleQuoteCodeRegexp, `'#39'`)
       return modifiedLine
     })
 
@@ -33,7 +22,7 @@ export default (inputText) => {
       }
     })
 
-    // Clculates the number of white spaces to put in the end of each line
+    // Calculates the number of white spaces to put in the end of each line
     modifiedLinesArray.forEach((line, index) => {
       const lineLengthDifference = biggestLine.length - line.length
       const numberOfWhiteSpaces = lineLengthDifference + 4
@@ -46,13 +35,13 @@ export default (inputText) => {
         const isTheLastLine = index === modifiedLinesArray.length - 1
         const lineIsEmpty = !line || !line.trim()
 
-        if (lineIsEmpty) return `'${lineWhiteSpaces}${END_OF_LINE}`
-        if (isTheLastLine) return `'${line}${lineWhiteSpaces}${END_OF_SQL}`
-        return `'${line}${lineWhiteSpaces}${END_OF_LINE}`
+        if (isTheLastLine) return `'${line}${lineWhiteSpaces}';`
+        if (lineIsEmpty) return `'${lineWhiteSpaces}'#13+`
+        return `'${line}${lineWhiteSpaces}'#13+`
       })
       .join('\n')
   } else {
-    return `'${inputText}${END_OF_SQL}`
+    return `'${inputText}';`
   }
 
   return outputText
