@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a188c4c3d89050173326389501b19b16",
+    "revision": "fa6582aa97308aa2b25f4c4fded1dd4c",
     "url": "/carrijeta-sql-formatter/index.html"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/carrijeta-sql-formatter/static/js/2.a5b82596.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "a0e78a09bf678a6ec88f",
-    "url": "/carrijeta-sql-formatter/static/js/main.22d71260.chunk.js"
+    "revision": "a276898cc071fb1bd489",
+    "url": "/carrijeta-sql-formatter/static/js/main.16a980a2.chunk.js"
   },
   {
     "revision": "41b7edb98b77348e4481",

@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/carrijeta-sql-formatter/precache-manifest.727e0eebcc8d23f815c5041a682d4201.js"
+  "/carrijeta-sql-formatter/precache-manifest.37138f5bb22e0f0a25b98f7fb858bfb0.js"
 );
 
 self.addEventListener('message', (event) => {
