@@ -18,17 +18,15 @@ when i need to code in Delphi.
 - [x] Install font awesome and create icon library
 - [x] Install redux and react-redux
 - [x] Install i18next and react-i18next
-- [x] Switch between Dark and light themes
-- [x] Create layout
-- [x] Copy formatted SQL to clipboard
-- [x] Put *#13* at the end of each SQL line
+- [x] Feature: Switch between Dark and light themes
+- [x] Feature: Copy formatted SQL to clipboard
+- [x] Feature: Put *#13* at the end of each SQL line
 - [x] Feature: switch between normal SQL and DELPHI SQL
-- [ ] Show the project version in header
-- [ ] Style all the scrollbars
-- [ ] Config SQL format
-- [ ] Code highlighting
-- [ ] Downlaod the formatted SQL file
-- [ ] Downlaod the unformatted SQL file
+- [x] Feature: transform single quotes in *'#39'*
+- [ ] Feature: Config SQL format
+- [ ] Feature: Code highlighting
+- [ ] Feature: Keyboard shortcuts to copy, import and invert types
+- [ ] Feature: Save the formatted and the unformatted SQL on each formatting (history)
 
 ## :zap: Used Technologies
 
