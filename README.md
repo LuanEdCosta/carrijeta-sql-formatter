@@ -19,9 +19,9 @@ when i need to code in Delphi.
 - [x] Install redux and react-redux
 - [x] Install i18next and react-i18next
 - [x] Switch between Dark and light themes
-- [ ] Create layout
-- [ ] Copy formatted SQL to clipboard
-- [ ] Put *#13* at the end of each SQL line
+- [x] Create layout
+- [x] Copy formatted SQL to clipboard
+- [x] Put *#13* at the end of each SQL line
 - [ ] Code highlighting
 - [ ] Config SQL format
 - [ ] Downlaod formatted SQL file
