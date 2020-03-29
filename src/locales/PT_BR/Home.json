@@ -2,6 +2,7 @@
   "charCount": "{{count}}/10000",
   "sqlPlaceholder": "Escreva seu SQL aqui",
   "formatting": "Formatando SQL...",
+  "importSqlFile": "Importar Arquivo SQL",
   "sqlTypes": {
     "normal": "SQL Normal",
     "delphi": "Delphi SQL"

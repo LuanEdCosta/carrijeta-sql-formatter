@@ -20,9 +20,9 @@ export const AppName = styled.a`
   text-transform: uppercase;
   font-size: 2rem;
   font-weight: bold;
-  height: 100%;
-  display: flex;
-  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `
 
 export const HeaderActions = styled.div`

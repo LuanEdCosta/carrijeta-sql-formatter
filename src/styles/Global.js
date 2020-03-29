@@ -1,8 +1,14 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle, css } from 'styled-components'
+
+const fontStyle = css`
+  color: ${({ theme }) => theme.primaryText};
+  line-height: 1.5;
+  font-size: 1.6rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+`
 
 export const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
-
   * {
     box-sizing: border-box;
     margin: 0;
@@ -15,22 +21,14 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: 'Montserrat', sans-serif;
-    color: ${({ theme }) => theme.primaryText};
+    font-family: 'Roboto Mono', monospace;
     background: ${({ theme }) => theme.background};
-    font-size: 1.6rem;
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
     height: 100%;
+    ${fontStyle}
   }
 
-  textarea, input, button {
-    font-family: 'Montserrat', sans-serif;
-    color: ${({ theme }) => theme.primaryText};
-    line-height: 1.5;
-    font-size: 1.6rem;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  textarea, input, button, code {
+    font-family: 'Roboto Mono', monospace;
+    ${fontStyle}
   }
 `

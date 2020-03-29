@@ -5,6 +5,16 @@ import {
   faExchangeAlt,
   faTextWidth,
   faTimes,
+  faFileUpload,
+  faCopy,
 } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faGithub, faPalette, faExchangeAlt, faTextWidth, faTimes)
+library.add(
+  faGithub,
+  faPalette,
+  faExchangeAlt,
+  faTextWidth,
+  faTimes,
+  faFileUpload,
+  faCopy,
+)

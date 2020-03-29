@@ -19,8 +19,11 @@ import {
   CharactersCount,
   ClearInputAction,
   OutputText,
+  ImportActions,
+  ImportAction,
+  CopyAction,
 } from './styles'
-import { useStopTyping, useFormatSql } from '../../hooks'
+import { useStopTyping, useFormatSql, useCopyToClipboard } from '../../hooks'
 
 const Home = () => {
   const { t } = useTranslation('Home')
@@ -45,11 +48,44 @@ const Home = () => {
     inputRef.current.focus()
   }, [])
 
+  const onFileSelected = useCallback(
+    (e) => {
+      if (typeof window.FileReader === 'function') {
+        const [file] = e.target.files
+        const fileReader = new FileReader()
+        fileReader.onload = (readEvent) => {
+          onChangeInputText(readEvent.target.result)
+        }
+        fileReader.readAsText(file)
+      } else {
+        // eslint-disable-next-line no-alert
+        alert(t('Error:readFile'))
+      }
+    },
+    [onChangeInputText, t],
+  )
+
+  const onCopyOutputText = useCopyToClipboard('outputText')
+
   return (
     <Container>
       <Header />
 
       <Content>
+        <ImportActions>
+          <ImportAction as="label" htmlFor="fileInput">
+            <FontAwesomeIcon icon="file-upload" />
+            <span>{t('importSqlFile')}</span>
+            <input
+              style={{ display: 'none' }}
+              onChange={onFileSelected}
+              accept=".sql"
+              id="fileInput"
+              type="file"
+            />
+          </ImportAction>
+        </ImportActions>
+
         <FormatContainer>
           <FormatActions>
             <LeftAlignedActions>
@@ -64,6 +100,11 @@ const Home = () => {
 
             <RightAlignedActions>
               <Action>{t('sqlTypes.delphi')}</Action>
+
+              <CopyAction onClick={onCopyOutputText}>
+                <FontAwesomeIcon icon="copy" />
+                <span>{t('Glossary:copy')}</span>
+              </CopyAction>
             </RightAlignedActions>
           </FormatActions>
 
@@ -80,6 +121,10 @@ const Home = () => {
                 value={inputText}
                 onChange={(e) => onChangeInputText(e.target.value)}
                 placeholder={t('sqlPlaceholder')}
+                spellCheck="false"
+                autoCorrect="off"
+                autoComplete="off"
+                autoCapitalize="off"
               />
 
               <InputFooter>
@@ -91,7 +136,7 @@ const Home = () => {
             </InputContainer>
 
             <OutputContainer>
-              <OutputText usePlaceholderStyle={isTyping}>
+              <OutputText usePlaceholderStyle={isTyping} id="outputText">
                 {isTyping && !!inputText ? t('formatting') : outputText}
               </OutputText>
             </OutputContainer>

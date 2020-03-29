@@ -1,12 +1,22 @@
 import styled from 'styled-components'
 import { ContainerWithHeader } from '../../components/Containers'
 
+const BREAKPOINTS = {
+  FIRST: '850px',
+  SECOND: '660px',
+}
+
 export const Container = styled(ContainerWithHeader)`
   height: 100%;
 `
 
 export const Content = styled.div`
-  padding: 5%;
+  padding: 24px 5%;
+`
+
+export const ImportActions = styled.div`
+  display: flex;
+  margin-bottom: 24px;
 `
 
 export const FormatContainer = styled.div`
@@ -24,6 +34,10 @@ export const FormatActions = styled.div`
   padding: 8px;
   display: flex;
   justify-content: center;
+  @media only screen and (max-width: ${BREAKPOINTS.FIRST}) {
+    align-items: center;
+    flex-direction: column;
+  }
 `
 
 export const LeftAlignedActions = styled.div`
@@ -33,7 +47,13 @@ export const LeftAlignedActions = styled.div`
 `
 
 export const RightAlignedActions = styled.div`
+  display: flex;
   flex: 1;
+  @media only screen and (max-width: ${BREAKPOINTS.FIRST}) {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
 `
 
 export const CenterAlignedActions = styled.div`
@@ -42,9 +62,9 @@ export const CenterAlignedActions = styled.div`
 
 export const Action = styled.div`
   border-radius: ${({ round }) => (round ? '100%' : '5px')};
-  padding: ${({ round }) => (round ? '0' : '0 16px')};
-  width: ${({ round }) => (round ? '4rem' : 'fit-content')};
-  height: 4rem;
+  padding: ${({ round }) => (round ? '0' : '8px 16px')};
+  width: ${({ round }) => (round ? '4rem' : 'auto')};
+  height: ${({ round }) => (round ? '4rem' : 'auto')};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -54,14 +74,28 @@ export const Action = styled.div`
   user-select: none;
   font-weight: bold;
   text-transform: uppercase;
-  &:hover {
-    background-color: ${({ theme }) => theme.hoverAlpha01};
+  span {
+    margin-left: 1.6rem;
   }
+  &:hover {
+    background: ${({ theme }) => theme.hoverAlpha01};
+  }
+`
+
+export const ImportAction = styled(Action)`
+  border: 1px solid ${({ theme }) => theme.border};
+`
+
+export const CopyAction = styled(Action)`
+  margin-left: auto;
 `
 
 export const InputAndOutputContainer = styled.div`
   display: flex;
   flex: 1;
+  @media only screen and (max-width: ${BREAKPOINTS.FIRST}) {
+    flex-direction: column;
+  }
 `
 
 export const InputContainer = styled.div`
@@ -89,6 +123,7 @@ export const InputComponent = styled.textarea`
   resize: none;
   border: none;
   flex: 1;
+  min-height: 160px;
 `
 
 export const InputFooter = styled.div`
@@ -110,7 +145,7 @@ export const OutputContainer = styled.div`
   display: flex;
   flex-direction: column;
 `
-export const OutputText = styled.div`
+export const OutputText = styled.code`
   background: ${({ theme }) => theme.background3};
   color: ${({ theme, usePlaceholderStyle }) =>
     usePlaceholderStyle ? theme.placeholder : theme.primaryText};
@@ -119,6 +154,7 @@ export const OutputText = styled.div`
   padding: 2.4rem;
   overflow: hidden;
   word-break: break-all;
-  white-space: pre-line;
+  white-space: pre-wrap;
   flex: 1;
+  min-height: 160px;
 `
