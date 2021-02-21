@@ -5,8 +5,7 @@ They use Delphi to build complex softwares and their code editor doesn't provide
 
 ## :heart: Motivation
 
-I always wanted to create something that they can use in their daily routine of development and help me
-when i need to code in Delphi.
+I always wanted to create something that they can use in their daily routine of development and help me when I need to code in Delphi.
 
 ## :bulb: TODO
 
@@ -26,7 +25,7 @@ when i need to code in Delphi.
 - [ ] Feature: Config SQL format
 - [ ] Feature: Code highlighting
 - [ ] Feature: Keyboard shortcuts to copy, import and invert types
-- [ ] Feature: Save the formatted and the unformatted SQL on each formatting (history)
+- [ ] Feature: Store the formatted and the unformatted SQL on each formatting (history)
 
 ## :zap: Used Technologies
 
