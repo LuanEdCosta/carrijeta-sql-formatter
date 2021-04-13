@@ -35,3 +35,7 @@ I always wanted to create something that they can use in their daily routine of 
 - Eslint
 - Prettier
 - styled-components
+
+## :man: Author
+
+Luan Eduardo da Costa | [Follow me on Linkedin](https://www.linkedin.com/in/luaneducosta/)
