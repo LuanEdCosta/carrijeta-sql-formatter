@@ -22,10 +22,6 @@ I always wanted to create something that they can use in their daily routine of 
 - [x] Feature: Put *#13* at the end of each SQL line
 - [x] Feature: switch between normal SQL and DELPHI SQL
 - [x] Feature: transform single quotes in *'#39'*
-- [ ] Feature: Config SQL format
-- [ ] Feature: Code highlighting
-- [ ] Feature: Keyboard shortcuts to copy, import and invert types
-- [ ] Feature: Store the formatted and the unformatted SQL on each formatting (history)
 
 ## :zap: Used Technologies
 
